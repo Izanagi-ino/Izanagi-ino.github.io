@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      background: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #e63950;
+    }
+
+    #message {
+      display: none;
+      margin-top: 15px;
+      color: #333;
+      font-size: 15px;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>For You 💖</h1>
+    <p>Click the button</p>
+    <button onclick="showMessage()">Open my heart 💌</button>
+    <div id="message">
+      <p>
+        Hi… I’ve been wanting to tell you this for a long time.<br><br>
+        You always make my days brighter without even trying.
+        I don’t know what the future holds, but I just want you to know…
+        I like you. 💕
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
